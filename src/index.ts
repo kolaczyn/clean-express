@@ -1,10 +1,11 @@
 import express from 'express'
+import { postRouter } from './posts'
+import { userRouter } from './users'
 
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('goodbye world\n')
-})
+app.use('/posts', postRouter)
+app.use('/users', userRouter)
 
 const PORT = 3000
 app.listen(PORT, () => {
