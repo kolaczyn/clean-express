@@ -1,10 +1,10 @@
 import express from 'express'
-import { postRouter } from './posts'
+import { postRouter, postRepository } from './posts'
 import { userRouter } from './users'
 
 const app = express()
 
-app.use('/posts', postRouter)
+app.use('/posts', postRouter(postRepository))
 app.use('/users', userRouter)
 
 const PORT = 3000
