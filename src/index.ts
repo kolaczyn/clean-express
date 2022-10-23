@@ -1,3 +1,12 @@
-import { greeter } from './greeter'
+import express from 'express'
 
-console.log(greeter('world'))
+const app = express()
+
+app.get('/', (req, res) => {
+  res.send('goodbye world\n')
+})
+
+const PORT = 3000
+app.listen(PORT, () => {
+  console.info(`Listening on port ${PORT}`)
+})
