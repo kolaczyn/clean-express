@@ -12,7 +12,7 @@
     "ci": "run-p -cn --aggregate-output format types lint build"
   },
   "engines": {
-    "node": "18.7.0"
+    "node": ">=18.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
