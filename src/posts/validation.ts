@@ -1,23 +1,9 @@
-type Validation<T> =
-  | {
-      success: true
-      payload: T
-    }
-  | {
-      success: false
-      error: string
-    }
+import { z } from 'zod'
 
-// TODO add better validation with zod in middleware
-export const validateUserId = (id: string): Validation<number> => {
-  if (isNaN(Number(id))) {
-    return {
-      success: false,
-      error: 'The id is not a number',
-    }
-  }
-  return {
-    success: true,
-    payload: Number(id),
-  }
-}
+const postSchema = z.object({
+  id: z.number(),
+  contents: z.string(),
+})
+export const postValidation = postSchema.safeParse
+
+export const userIdValidation = z.coerce.number().safeParse

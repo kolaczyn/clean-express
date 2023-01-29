@@ -9,5 +9,5 @@ app.use('/users', userRouter)
 
 const PORT = 3000
 app.listen(PORT, () => {
-  console.info(`Listening on port ${PORT}`)
+  console.info(`Listening on http://localhost:${PORT}`)
 })
