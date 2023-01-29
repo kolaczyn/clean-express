@@ -1,5 +1,5 @@
 export type PostRepository = {
-  getUserById: (id: number) => PostInDb
+  getUserById: (id: number) => PostInDb | 'Not found'
 }
 
 export type PostInDb = {
