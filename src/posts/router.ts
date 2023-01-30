@@ -10,14 +10,14 @@ export const postRouter = (postRepository: PostRepository) => {
     res.send('hello from posts router')
   })
 
-  postRouter.get('/:id', (req, res) => {
+  postRouter.get('/:id', async (req, res) => {
     const { id } = req.params
-    // TODO move validation to middleware
     const result = userIdValidation(id)
+
     if (!result.success) {
-      return res.status(404).send(result.error)
+      return res.status(400).send(result.error.message)
     }
-    const data = getPostById(postRepository, result.data)
+    const data = await getPostById(postRepository, result.data)
     if (data === 'Not found') {
       return res.status(404).send(data)
     }

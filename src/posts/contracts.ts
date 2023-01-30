@@ -1,5 +1,5 @@
 export type PostRepository = {
-  getUserById: (id: number) => PostInDb | 'Not found'
+  getPostById: (id: number) => Promise<PostInDb | 'Not found'>
 }
 
 export type PostInDb = {
@@ -8,7 +8,10 @@ export type PostInDb = {
   columnId: string
 }
 
-export type GetPostByIdUseCase = (id: number) => PostDto
+export type GetPostByIdUseCase = (
+  postRepository: PostRepository,
+  id: number
+) => Promise<PostDto | 'Not found'>
 
 export type PostDto = {
   contents: string
