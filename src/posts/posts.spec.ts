@@ -36,4 +36,11 @@ describe('posts', () => {
     const response = await request(app).get('/posts/99999')
     expect(response.statusCode).toEqual(404)
   })
+
+  it('returns 400 if the id is not valid', async () => {
+    const app = setup()
+
+    const response = await request(app).get('/posts/invalid-number')
+    expect(response.statusCode).toEqual(400)
+  })
 })

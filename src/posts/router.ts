@@ -15,7 +15,7 @@ export const postRouter = (postRepository: PostRepository) => {
     const result = userIdValidation(id)
 
     if (!result.success) {
-      return res.status(404).send(result.error)
+      return res.status(400).send(result.error.message)
     }
     const data = await getPostById(postRepository, result.data)
     if (data === 'Not found') {
