@@ -9,7 +9,7 @@
     "lint": "eslint src",
     "test": "jest --watch",
     "test:once": "jest",
-    "ci": "run-p -cn --aggregate-output format types lint build"
+    "ci": "run-p -cn --aggregate-output format types lint test"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,2 +1,2 @@
 export { postRouter } from './router'
-export { postRepository } from './post-repository'
+export { postRepository } from './in-memory-post-repository'

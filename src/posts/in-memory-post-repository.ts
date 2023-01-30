@@ -8,9 +8,9 @@ const db = [
   },
 ]
 
-const getUserById = (id: number): PostInDb | 'Not found' =>
-  db.find((x) => x.id === id) ?? 'Not found'
+const getUserById = (id: number): Promise<PostInDb | 'Not found'> =>
+  Promise.resolve(db.find((x) => x.id === id) ?? 'Not found')
 
 export const postRepository: PostRepository = {
-  getUserById,
+  getPostById: getUserById,
 }

@@ -1,4 +1,13 @@
-import { PostRepository } from './contracts'
+import { GetPostByIdUseCase, PostDto } from './contracts'
 
-export const getPostById = (postRepository: PostRepository, id: number) =>
-  postRepository.getUserById(id)
+export const getPostById: GetPostByIdUseCase = async (postRepository, id) => {
+  const dbPost = await postRepository.getPostById(id)
+  if (dbPost === 'Not found') {
+    return 'Not found'
+  }
+  const post: PostDto = {
+    contents: dbPost.contents,
+    id: dbPost.id,
+  }
+  return post
+}
