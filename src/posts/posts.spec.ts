@@ -1,4 +1,3 @@
-import assert from 'assert'
 import request from 'supertest'
 import { getApp } from '../app'
 import { getInMemoryPostRepository } from './in-memory-post-repository'
